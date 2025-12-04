@@ -37,6 +37,13 @@ print("-------------------------------------------\n"
 # 4. Print the final 'total_cost' using an f-string, formatted to two decimal places.
 
 # Write your code below:
+price = 45.00
+Vat_Rate = 0.20
+total_cost = (45.00 * 0.20) + 45.00
+print (f"{total_cost:.2f}")
+
+
+
 
 
 # -------------------------------------------
@@ -70,7 +77,13 @@ print("\n-------------------------------------------\n"
 # 5. Otherwise (if total_cost is 60 or more), print "Purchase denied: Budget severely exceeded."
 
 # Write your code below:
-
+budget = 50
+if total_cost <= budget:
+    print("Purchase approved: Within budget")
+elif total_cost > budget or total_cost < 60:
+    print("Warning: Purchase exceeds budget but is manageable.")
+else:
+    print("Purchase denied: Budget severely exceeded.")
 
 # -------------------------------------------
 # CHECKPOINT
@@ -106,13 +119,18 @@ print("\n-------------------------------------------\n"
 # HINT: You may need to use a single `try` block that covers both `int()` conversions.
 
 def calculate_area():
+    
     # Insert try/except block here
+    try:
     # Remember to handle the input() and int() conversions inside the try block
-    length = int(input("Enter rectangle length: "))
-    width = int(input("Enter rectangle width: "))
-    area = length * width
-    return area
+        length = int(input("Enter rectangle length: "))
+        width = int(input("Enter rectangle width: "))
+        area = length * width
+        return area
     # Insert except block here
+    except ValueError:
+        print("Error: Please enter only numerical values.")
+        return 0
 
 # Call the function:
 rectangle_area = calculate_area()
@@ -154,6 +172,14 @@ weekly_sales = [120.50, 155.75, 95.00, 180.25, 130.50]
 # 5. Print both the 'total_sales' and 'average_sale', formatted to two decimal places.
 
 # Write your code below:
+total_sales = 0
+for sales in weekly_sales:
+    total_sales = sales + total_sales
+average_sale = total_sales / 5
+print(f"Total Sales: £{total_sales:.2f}")
+print(f"Average Sales: £{average_sale:.2f}")
+
+
 
 
 # -------------------------------------------
@@ -194,7 +220,13 @@ product_catalogue = {
 # 4. If the code does not exist, print "Error: Product code not found."
 
 # Write your code below:
+user_input = input("Enter Product code (e.g. 'PRD001'): ").upper()
 
+try:
+        price = product_catalogue[user_input]
+        print(f"Product code: {user_input} , Price: {price:.2f}")
+except (ValueError, TypeError, KeyError):
+        print("Error: Product code not found.")
 
 # -------------------------------------------
 # CHECKPOINT
@@ -224,7 +256,8 @@ product_catalogue = {
 #
 # TODO:
 # 1. Modify the input prompt in Task 5 to ensure the user's input is always converted to uppercase (to match the keys).
-# 2. **Optional but Recommended:** Review the solution provided by the tutor for handling `ValueError` (like in Task 3) and apply that knowledge to Task 5 to prevent potential crashes if the dictionary used different data types.
+# 2. **Optional but Recommended:** Review the solution provided by the tutor for handling `ValueError` (like in Task 3) 
+#       and apply that knowledge to Task 5 to prevent potential crashes if the dictionary used different data types.
 
 # -------------------------------------------
 
@@ -244,7 +277,13 @@ print("\n-------------------------------------------\n"
     + "-------------------------------------------")
 
 # Write your code below:
-
+secret_colour = "RED"
+user_choice = input("Guess the secret colour: ").upper()
+while user_choice == secret_colour:
+    print("You guessed it right!")
+    break
+else:
+    print("Try Again!")
 
 # -------------------------------------------
 
