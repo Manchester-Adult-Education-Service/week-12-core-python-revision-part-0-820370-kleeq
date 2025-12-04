@@ -220,12 +220,13 @@ product_catalogue = {
 # 4. If the code does not exist, print "Error: Product code not found."
 
 # Write your code below:
-user_input = input("Enter Product code (e.g. 'PRD001'): ")
-if user_input in product_catalogue:
-    price = product_catalogue[user_input]
-    print(f"Product code: {user_input} , Price: {price:.2f}")
-else:
-    print("Error: Product code not found.")
+user_input = input("Enter Product code (e.g. 'PRD001'): ").upper()
+
+try:
+        price = product_catalogue[user_input]
+        print(f"Product code: {user_input} , Price: {price:.2f}")
+except (ValueError, TypeError, KeyError):
+        print("Error: Product code not found.")
 
 # -------------------------------------------
 # CHECKPOINT
@@ -255,7 +256,8 @@ else:
 #
 # TODO:
 # 1. Modify the input prompt in Task 5 to ensure the user's input is always converted to uppercase (to match the keys).
-# 2. **Optional but Recommended:** Review the solution provided by the tutor for handling `ValueError` (like in Task 3) and apply that knowledge to Task 5 to prevent potential crashes if the dictionary used different data types.
+# 2. **Optional but Recommended:** Review the solution provided by the tutor for handling `ValueError` (like in Task 3) 
+#       and apply that knowledge to Task 5 to prevent potential crashes if the dictionary used different data types.
 
 # -------------------------------------------
 
