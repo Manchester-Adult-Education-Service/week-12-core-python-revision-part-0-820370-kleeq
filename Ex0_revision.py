@@ -277,7 +277,13 @@ print("\n-------------------------------------------\n"
     + "-------------------------------------------")
 
 # Write your code below:
-
+secret_colour = "RED"
+user_choice = input("Guess the secret colour: ").upper()
+while user_choice == secret_colour:
+    print("You guessed it right!")
+    break
+else:
+    print("Try Again!")
 
 # -------------------------------------------
 
